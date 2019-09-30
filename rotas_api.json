@@ -1,0 +1,108 @@
+POST: /newMac
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin",
+	"mac_address":"1C-2C-3C-4C-5C-6C",
+	"mac_description":"Notebook"
+}
+Response
+{
+	"success": true,
+	"error": "",
+	"reboot_required": false
+}
+
+POST: /getMac
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin"
+}
+Response
+{
+	"success": true,
+	"error": "",
+	"remaining_macs": 20,
+	"mac_list": [
+		{
+			"description": "Notebook",
+			"enabled": true,
+			"id": "1",
+			"mac_address": "1C-2C-3C-4C-5C-6C"
+		}
+	]
+}
+
+POST: /getMacPolicyStatus
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin"
+}
+Response
+{
+	"success": true,
+	"error": "",
+	"mac_filter_activate": true,
+	"mac_filter_type": 0
+}
+mac_filter_type:	0 -> Deny all macs in list
+					1 -> Allow only macs in list
+
+
+POST: /getWifiConfig
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin"
+}
+Response
+{
+	"success": true,
+	"error": "",
+	"ssid": "My SSID",
+	"password": "my-super-password"
+}
+
+POST: /changeWifiConfig
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin",
+	"ssid": "My new SSID",
+	"password": "my-new-super-password",
+	"password_encryption": "WPA2-PSK"
+}
+Response
+{
+	"success": true,
+	"error": "",
+	"ssid": "My new SSID",
+	"password": "my-new-super-password"
+}
+
+POST: /reboot
+Request
+{
+	"router_template": "tplink:TL-WR940N",
+	"router_ip":"http://192.168.0.1/",
+	"router_login":"admin",
+	"router_password":"admin"
+}
+Response
+{
+	"success": true,
+	"error": "",
+}
+
